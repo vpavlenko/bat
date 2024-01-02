@@ -16,13 +16,36 @@ A transformer architecture designed from scratch ~~to fail~~ to enhance beat tok
    - Eleven features for presence of all intervals above the bass?
    - Does the melody have one/two/four notes? Where do they go?
    - Is there a chord strumming?
-   - Is it beat 1 or beat 2 of the measure?
+   - Which quarter of the measure is it?
+   - Does it have 16th hi-hats? Snare/kick/crash?
    - etc etc
 - Make a bit vector out of these features. When we multiply it by a learnable matrix B, we'll get beat embeddings - these will be our tokens.
 - By the way, we'll go for the size of 512 tokens - because most of the tracks fit under 128 measures.
 - Now for the weird part. We need to make a first self-attention. A key-query-value dance. Let's calculate relative pairwise features between two beats and use it there.
 - So, write a function that extracts binary features from a pair of beats. Again, no absolute pitches allowed:
-  - 
+   - Is the bass/chord/melody the same?
+   - Is the melody from beat 1 tranposed to beat 2?
+   - Are the bass/chord/melody starting from these two beats equal for the next 4/16/64 beats? (A bit of pre-compute for faster convergence.)
+   - What's the interval between leftmost bass notes of two beats?
+   - Is the second beat an exact transposition of all notes one tone up?
+   - Encode relative distance in measures in beats between these two. Look up rotary position encoding and invent your own.
+   - etc etc
+- Then multiply this on Key/Query/Value matrices, make self-attention, add MLP.
+- Stack more layers.
+
+## Iterative approach
+
+Start learning this on tiny sizes with a handful of features and just 2 self-attention layers. Maybe try a tiny embedding length - 32? 
+
+Oh, how do we train? What should [MASK] token be equal to? Well, let's do binary prediction of all beat features via a sigmoid. A loss will sum all sigmoids.
 
 
+## Fine-tuning
+
+We can try to fine-tune on answering music theory questions about every beat:
+- is this a tonic chord
+- is this a true measure start, a 4-measure phrasing start
+- is this a start of a direct modulation up
+- what's the likely local scale
+- is this blues
 
