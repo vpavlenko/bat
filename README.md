@@ -31,7 +31,7 @@ A transformer architecture designed from scratch ~~to fail~~ to enhance beat tok
    - Encode relative distance in measures in beats between these two. Look up rotary position encoding and invent your own.
    - etc etc
 - Then multiply this on Key/Query/Value matrices, make self-attention, add MLP.
-- Stack more layers.
+- Stack more layers. Don't repeat the pairwise embeddings again - hope that a residual connection will help if need be. Use some standard self-attention with some relative distances.
 
 ## Iterative approach
 
