@@ -2,7 +2,7 @@
 
 <img src="https://github.com/vpavlenko/bat/assets/1491908/37e7cbd5-034d-436b-a00c-2e807d88647b" width="600">
 
-A Beat As Token transformer architecture designed from scratch ~~to fail~~ to enhance beat token embeddings with pairwise beat similarities.
+A Beat As Token transformer architecture designed from scratch ~~to fail~~ to enhance beat token embeddings with pairwise beat comparisons.
 
 ## Idea
 
