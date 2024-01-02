@@ -33,7 +33,7 @@ A Beat As Token transformer architecture designed from scratch ~~to fail~~ to en
 - Then multiply this on Key/Query/Value matrices, make self-attention, add MLP.
 - Stack more layers. Don't repeat the pairwise embeddings again - hope that a residual connection will help if need be. Use some standard self-attention with some relative distances.
 
-## Iterative approach
+## Where to start
 
 Start learning this on tiny sizes with a handful of features and just 2 self-attention layers. Maybe try a tiny embedding length - 32? 
 
