@@ -19,8 +19,8 @@ A Beat As Token transformer architecture designed from scratch ~~to fail~~ to en
    - Which quarter of the measure is it?
    - Does it have 16th hi-hats? Snare/kick/crash?
    - etc etc
-- Make a bit vector out of these features. When we multiply it by a learnable matrix B, we'll get beat embeddings - these will be our tokens.
-- By the way, we'll go for the size of 512 tokens - because most of the tracks fit under 128 measures.
+- Make a bit vector out of these features. As we multiply it by a learnable matrix B, we'll get beat embeddings - these will be our tokens.
+- By the way, we'll go for the context of 512 tokens - because most of the tracks fit under 128 measures.
 - Now for the weird part. We need to make a first self-attention. A key-query-value dance. Let's calculate relative pairwise features between two beats and use it there.
 - So, write a function that extracts binary features from a pair of beats. Again, no absolute pitches allowed:
    - Is the bass/chord/melody the same?
