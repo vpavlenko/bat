@@ -49,3 +49,7 @@ We can try to fine-tune on answering music theory questions about every beat:
 - what's the likely local scale
 - is this blues
 
+## Literature
+
+- https://arxiv.org/abs/2107.09877
+- https://arxiv.org/abs/2203.14263
