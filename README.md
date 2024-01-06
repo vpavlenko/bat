@@ -53,3 +53,4 @@ We can try to fine-tune on answering music theory questions about every beat:
 
 - https://arxiv.org/abs/2107.09877
 - https://arxiv.org/abs/2203.14263
+- https://arxiv.org/pdf/2111.07624.pdf
